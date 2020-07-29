@@ -54,7 +54,6 @@
             <li class="nav-item">
               <a class="nav-link" href="/spa"> SPA </a>
             </li>
-
              <li class="nav-item">
               <a class="nav-link" href="/community"> Community </a>
             </li>
