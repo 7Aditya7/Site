@@ -7,7 +7,7 @@
         </div>
         <a href="/" class="btn btn-default">Go Back</a>
         <hr>
-		{!! Form::open(['action' => 'FormController@store', 'method' => 'POST', 'enctype' =>'multipart/form-data']) !!}
+		{!! Form::open(['action' => 'SecretaryController@store', 'method' => 'POST', 'enctype' =>'multipart/form-data']) !!}
             <div class="form-group">
                     {{Form::label( 'title' , 'Prefix' )}}
                     {{Form::text('prefix','',['class' => 'form-control col-md-5', 'placeholder' => 'prefix'])}}

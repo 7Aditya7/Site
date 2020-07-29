@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Form;
+use App\Secretary;
 use Illuminate\Http\Request;
 
-class FormController extends Controller
+class SecretaryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class FormController extends Controller
      */
     public function index()
     {
-        return view('form');    
+        return view('secretary/index'); 
     }
 
     /**
@@ -35,8 +35,6 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
-      
-
         $this-> validate($request,[
             'prefix' => 'required',
             'email' => 'required|email',
@@ -63,9 +61,8 @@ class FormController extends Controller
         }else{
             $fileNameToStore = 'noimage.jpg';
         }
-            
 
-        $forms = new Form([
+        $secretaries = new Secretary([
             'prefix' => $request->prefix,
             'email' => $request->email,
             'first_name' => $request->first_name,
@@ -75,21 +72,20 @@ class FormController extends Controller
             'blood_group' => $request->blood_group,
             'membership_number' => $request->memb_number,
             ]);
-        $forms->formal_photo = $fileNameToStore;
-        $forms->save();
+        $secretaries->formal_photo = $fileNameToStore;
+        $secretaries->save();
         echo "Database updated";
-        
-      
-    }
+            
 
+    }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Form  $form
+     * @param  \App\Secretary  $secretary
      * @return \Illuminate\Http\Response
      */
-    public function show(Form $form)
+    public function show(Secretary $secretary)
     {
         //
     }
@@ -97,10 +93,10 @@ class FormController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Form  $form
+     * @param  \App\Secretary  $secretary
      * @return \Illuminate\Http\Response
      */
-    public function edit(Form $form)
+    public function edit(Secretary $secretary)
     {
         //
     }
@@ -109,10 +105,10 @@ class FormController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Form  $form
+     * @param  \App\Secretary  $secretary
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Form $form)
+    public function update(Request $request, Secretary $secretary)
     {
         //
     }
@@ -120,10 +116,10 @@ class FormController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Form  $form
+     * @param  \App\Secretary  $secretary
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Form $form)
+    public function destroy(Secretary $secretary)
     {
         //
     }
