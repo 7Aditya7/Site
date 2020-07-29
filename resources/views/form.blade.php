@@ -7,7 +7,6 @@
         </div>
         <a href="/" class="btn btn-default">Go Back</a>
         <hr>
-          
 		{!! Form::open(['action' => 'FormController@store', 'method' => 'POST', 'enctype' =>'multipart/form-data']) !!}
             <div class="form-group">
                     {{Form::label( 'title' , 'Prefix' )}}
@@ -83,14 +82,10 @@
                         {{$message}}
                     </div>
                     @enderror 
-
-
-
             <div class="form-group">
                 {{Form::label('title','Formal Photo [Optional]')}}<br>
                 {{Form::File('formal_photo')}}
-            </div> 
-          
+            </div>       
             {{Form::submit('Submit Form', ['class' => 'btn btn-primary', 'style'=> 'margin-left:16%;'])}}
             {!! Form::close() !!}
     </div>   

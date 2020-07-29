@@ -63,6 +63,9 @@ Route::resource('/community/reply','ReplyController',[
 //SPA Form
 Route::resource('/spa','SpaController');
 
+Route::resource('/create','FormController');
+
 Route::view('/award','frontend/award');
 Route::view('/calender','frontend/calender');
+
 

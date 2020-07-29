@@ -14,7 +14,7 @@ class FormController extends Controller
      */
     public function index()
     {
-        //
+        return view('form');    
     }
 
     /**
@@ -24,7 +24,7 @@ class FormController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,8 +35,53 @@ class FormController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      
+
+        $this-> validate($request,[
+            'prefix' => 'required',
+            'email' => 'required|email',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'contact_number' => 'required',
+            'address' => 'required',
+            'blood_group' => 'required',
+            'memb_number' => 'required',
+            'formal_photo' =>  'image|nullable|max:1999',
+        ]);
+        
+
+        if($request->hasFile('formal_photo')){
+            $filenameWithExt = $request->file('formal_photo')->getClientOriginalName();
+            //Get just file name
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            //Get just extension
+            $extension = $request->file('formal_photo')->getClientOriginalExtension();
+            //File name to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+            //Upload Image
+            $path = $request->file('formal_photo')->storeAs('public/formal_photo',$fileNameToStore);
+        }else{
+            $fileNameToStore = 'noimage.jpg';
+        }
+            
+
+        $forms = new Form([
+            'prefix' => $request->prefix,
+            'email' => $request->email,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'contact_number' => $request->contact_number,
+            'address' => $request->address,
+            'blood_group' => $request->blood_group,
+            'membership_number' => $request->memb_number,
+            ]);
+        $forms->formal_photo = $fileNameToStore;
+        $forms->save();
+        echo "Database updated";
+        
+      
     }
+
 
     /**
      * Display the specified resource.
