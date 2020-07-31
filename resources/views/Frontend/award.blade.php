@@ -41,7 +41,7 @@
             - Leo District/Multiple District Officer’s Pin<br> 
             - Lions Young Leaders In Service Awards<br> 
             - Lcif Awards<br> 
-            - International President Special Certifi cate<br>
+            - International President Special Certificate<br>
         </div>
     </div>
  
@@ -102,3 +102,4 @@
     </div>
 </body>
 </html>
+@endsection
