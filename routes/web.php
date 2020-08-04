@@ -68,5 +68,7 @@ Route::resource('/secretary','SecretaryController');
 
 Route::view('/award','frontend/award');
 Route::view('/calender','frontend/calender');
+Route::view('/treasurer','treasurer/index');
+
 
 
