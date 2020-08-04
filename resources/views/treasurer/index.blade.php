@@ -283,7 +283,7 @@
          <input type="number" name="contact_number" class = "form-control col-md-5">
         </div>
 
-    </form>
+    </form>  
 </div>   
 @endsection
 
